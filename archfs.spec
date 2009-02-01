@@ -7,6 +7,8 @@ License:	GPL v2
 Group:		Applications
 Source0:	http://archfs.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	e29f8a023cde337814ce55d9aa144ac8
+Source1:	%{name}.1
+# Source1-md5:	3b00bae0666c498ce06adc1b30534973
 Patch0:		%{name}-gcc43.patch
 URL:		http://code.google.com/p/archfs/
 BuildRequires:	autoconf
@@ -38,6 +40,8 @@ kopii zapasowej wykonanej przy pomocy rdiff-backup.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
+install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/man1
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -49,3 +53,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/%{name}
+%{_mandir}/man1/%{name}.1.*
