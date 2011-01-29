@@ -1,15 +1,17 @@
+#
+%define		_ver	%(echo %{version}|tr -d b)	
+#
 Summary:	Userspace filesystem based on rdiff-backup repository data
 Summary(pl.UTF-8):	System plików w przestrzeni użytkownika wykorzystujący rdiff-backup
 Name:		archfs
-Version:	0.5.4
+Version:	0.5.6b
 Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	http://archfs.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	e29f8a023cde337814ce55d9aa144ac8
+# Source0-md5:	4f4e57d17c07f97fd7beb99dd1a46e2c
 Source1:	%{name}.1
 # Source1-md5:	3b00bae0666c498ce06adc1b30534973
-Patch0:		%{name}-gcc43.patch
 URL:		http://code.google.com/p/archfs/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,8 +28,7 @@ Archfs - system plików w przestrzeni użytkownika reprezentujący dane z
 kopii zapasowej wykonanej przy pomocy rdiff-backup.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{name}-%{_ver}
 
 %build
 %{__libtoolize}
