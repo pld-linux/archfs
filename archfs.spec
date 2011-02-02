@@ -1,5 +1,5 @@
 #
-%define		_ver	%(echo %{version}|tr -d b)	
+%define		_ver	%(echo %{version}|tr -d b)
 #
 Summary:	Userspace filesystem based on rdiff-backup repository data
 Summary(pl.UTF-8):	System plików w przestrzeni użytkownika wykorzystujący rdiff-backup
@@ -17,6 +17,8 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libfuse-devel
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
+BuildRequires:	zlib-devel
 Requires:	rdiff-backup
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
